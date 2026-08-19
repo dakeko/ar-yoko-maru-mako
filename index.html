@@ -37,7 +37,7 @@
 </head>
 <body>
 
-  <button id="start-button">タップしてARを開始</button>
+  <button id="start-button" style="display:none">タップしてARを開始</button>
 
   <a-scene mindar-image="imageTargetSrc: assets/targets.mind;"
            color-space="sRGB"
@@ -79,8 +79,10 @@ geometry="primitive:circle; radius:0.3"
     });
 
     target.addEventListener('targetFound', () => {
-      video.play();
+    video.muted = false;
+    video.play();
     });
+
 
     target.addEventListener('targetLost', () => {
       video.pause();
